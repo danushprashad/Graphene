@@ -66,7 +66,7 @@ calc = GPAW(mode=PW(700),
                  occupations=FermiDirac(width=0.05))
 grap_bilayer.set_calculator(calc)
 
-sf = UnitCellFilter(grap_bilayer,mask=[1,1,1,0,0,0]) # here you relax also the lattice. In your script, you relax only the atom positions
+sf = UnitCellFilter(grap_bilayer,mask=[1,1,1,0,0,0])
 opt = BFGS(sf,trajectory =name+'.traj', logfile = name+'.log', restart = name+'.pckl')
 opt.run(fmax=0.05)
 calc.write(name+'.gpw')
